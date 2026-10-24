@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasiw</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/anasiw.css">
+    <script src="scripts/anasiw.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a class="brand" href="./">
+                <img src="images/logo.png" alt="" width="32" height="32">
+                <span>Anasiw</span>
+            </a>
+            <a class="github" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                    <path fill="currentColor"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="container layout">
+        <section class="editor">
+            <div class="toolbar">
+                <button type="button" class="tool" id="cut-btn">
+                    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                        <path fill="currentColor"
+                            d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0m7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                    </svg>
+                    Nkeḍ
+                </button>
+                <button type="button" class="tool" id="copy-btn">
+                    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                        <path fill="currentColor" fill-rule="evenodd"
+                            d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+                    </svg>
+                    Zezder
+                </button>
+                <button type="button" class="tool tool-end" id="clear-btn">
+                    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                        <path fill="currentColor"
+                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                        <path fill="currentColor"
+                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                    </svg>
+                    Sfeḍ
+                </button>
+            </div>
+
+            <textarea id="text" class="text" aria-label="Aḍris" rows="6" placeholder="Uru ayenna trid da..."
+                spellcheck="false"></textarea>
+
+            <div class="keyboard" id="keyboard"></div>
+
+            <h2>Taɣara n usemres</h2>
+            <div class="shortcuts" id="shortcuts"></div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="about">
+                <h2>Γef ubatu</h2>
+                <p>Anasiw iga abecku yeldin seg internet n tirra n tutlayt tamaziɣt s usekkil alatini. Ad kwen-iɛawen,
+                    ad tsekwjemm isekkilen n tmaziɣt g uselkim neɣ tiliɣri.</p>
+            </div>
+
+            <h2>Isekkilen</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asekkil</th>
+                        <th>Amedya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>č / Č</td>
+                        <td>Ičča (He ate)</td>
+                    </tr>
+                    <tr>
+                        <td>ḍ / Ḍ</td>
+                        <td>Iḍan (Nights)</td>
+                    </tr>
+                    <tr>
+                        <td>ḥ / Ḥ</td>
+                        <td>Ḥewwa (Eve)</td>
+                    </tr>
+                    <tr>
+                        <td>ǧ / Ǧ</td>
+                        <td>Ur ǧǧin (Never)</td>
+                    </tr>
+                    <tr>
+                        <td>ɣ / Γ</td>
+                        <td>Γef (On)</td>
+                    </tr>
+                    <tr>
+                        <td>ṛ / Ṛ</td>
+                        <td>Beṛṛa (Out)</td>
+                    </tr>
+                    <tr>
+                        <td>ṣ / Ṣ</td>
+                        <td>Ṣinṣeg (Whistle)</td>
+                    </tr>
+                    <tr>
+                        <td>ṭ / Ṭ</td>
+                        <td>Tiṭ (Eye)</td>
+                    </tr>
+                    <tr>
+                        <td>ẓ / Ẓ</td>
+                        <td>Aẓawan (Music)</td>
+                    </tr>
+                    <tr>
+                        <td>ɛ / Ɛ</td>
+                        <td>Ɛli (Ali)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </aside>
+    </main>
+
+    <output class="toast" id="toast" aria-live="polite"></output>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+:root {
+    --text: #212529;
+    --muted: #6c757d;
+    --accent: #d63384;
+    --border: #dee2e6;
+    --border-strong: #adb5bd;
+    --surface: #f8f9fa;
+    --button: #f1f3f5;
+    --button-hover: #e2e6ea;
+    --focus-border: #86b7fe;
+    --focus-ring: rgba(13, 110, 253, 0.25);
+    --radius: 6px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text);
+    background: #fff;
+}
+
+h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Navbar (dimensions from getbootstrap.com .bd-navbar) */
+.navbar {
+    background: var(--surface);
+    padding: 0.75rem 0;
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3125rem 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.github {
+    display: flex;
+    padding: 0.5rem;
+    margin-right: -0.5rem;
+    color: var(--text);
+}
+
+.github:hover {
+    color: var(--muted);
+}
+
+/* Layout */
+.layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+/* Editor */
+.toolbar {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+}
+
+.tool {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.5rem;
+    border: 0;
+    border-radius: var(--radius);
+    background: none;
+}
+
+.tool:hover {
+    background: var(--button);
+}
+
+.tool-end {
+    margin-left: auto;
+}
+
+.text {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.75rem 1rem;
+    font: inherit;
+    font-size: 1.1rem;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    resize: vertical;
+}
+
+.text::placeholder {
+    color: var(--muted);
+}
+
+.text:focus {
+    outline: none;
+    border-color: var(--focus-border);
+    box-shadow: 0 0 0 0.25rem var(--focus-ring);
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.4rem 0.6rem;
+    margin-bottom: 2rem;
+}
+
+.key {
+    padding: 0.4rem 0;
+    font-size: 1.1rem;
+    color: var(--accent);
+    background: var(--button);
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+}
+
+.key:hover {
+    background: var(--button-hover);
+}
+
+.key:active {
+    transform: translateY(1px);
+}
+
+/* Shortcuts */
+.shortcuts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    font-weight: 700;
+}
+
+td {
+    padding-block: 0.75rem;
+}
+
+/* Sidebar */
+.about {
+    margin-bottom: 2.5rem;
+    padding: 0.75rem;
+    background: var(--surface);
+    border-radius: var(--radius);
+}
+
+.about h2 {
+    margin-bottom: 0.5rem;
+}
+
+.about p {
+    margin: 0 0 1rem;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background: var(--text);
+    border-radius: var(--radius);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 0.5rem);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .shortcuts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575px) {
+    .keyboard {
+        gap: 0.35rem;
+    }
+
+    .shortcuts {
+        gap: 1rem;
+    }
+}

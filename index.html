@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiwizi Tech Community</title>
+  <meta name="description" content="Tiwizi is the Amazigh philosophy of building together through solidarity, cooperation, and shared responsibility — the cultural foundation of the Tiwizi Tech Community.">
+  <meta property="og:title" content="Tiwizi Tech Community">
+  <meta property="og:description" content="Building together through solidarity, cooperation, and shared responsibility.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23c2410c'/%3E%3Ctext x='50' y='72' font-size='64' text-anchor='middle' fill='white' font-family='serif'%3E%E2%B5%A3%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fbf7f0;
+      --surface: #ffffff;
+      --surface-2: #f3ebdd;
+      --text: #1f1a14;
+      --muted: #6b5f50;
+      --line: #e6dccb;
+      --accent: #c2410c;        /* terracotta / ochre */
+      --accent-2: #1e3a8a;      /* Amazigh indigo */
+      --accent-3: #ca8a04;      /* saffron */
+      --accent-soft: #fde7d9;
+      --radius: 18px;
+      --shadow: 0 1px 2px rgb(31 26 20 / .06), 0 8px 24px rgb(31 26 20 / .06);
+      --container: min(1120px, 100% - 2rem);
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #14110d;
+        --surface: #1d1914;
+        --surface-2: #26201a;
+        --text: #f3ece1;
+        --muted: #b3a693;
+        --line: #352d24;
+        --accent: #f97316;
+        --accent-2: #93a8f5;
+        --accent-3: #facc15;
+        --accent-soft: #3a2316;
+        --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 8px 24px rgb(0 0 0 / .35);
+        color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #14110d;
+      --surface: #1d1914;
+      --surface-2: #26201a;
+      --text: #f3ece1;
+      --muted: #b3a693;
+      --line: #352d24;
+      --accent: #f97316;
+      --accent-2: #93a8f5;
+      --accent-3: #facc15;
+      --accent-soft: #3a2316;
+      --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 8px 24px rgb(0 0 0 / .35);
+      color-scheme: dark;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: "Fraunces", Georgia, serif;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin: 0 0 .5em;
+    }
+    h2 { font-size: clamp(1.75rem, 3vw + .5rem, 2.5rem); }
+    h3 { font-size: 1.2rem; }
+    p { margin: 0 0 1em; }
+    a { color: inherit; }
+
+    .container { width: var(--container); margin-inline: auto; }
+
+    /* ---------- Amazigh-inspired border motif ---------- */
+    .motif {
+      height: 14px;
+      background:
+        linear-gradient(135deg, var(--accent) 25%, transparent 25%) -7px 0 / 14px 14px,
+        linear-gradient(225deg, var(--accent) 25%, transparent 25%) -7px 0 / 14px 14px,
+        linear-gradient(315deg, var(--accent-2) 25%, transparent 25%) 0 0 / 14px 14px,
+        linear-gradient(45deg,  var(--accent-2) 25%, transparent 25%) 0 0 / 14px 14px;
+      opacity: .85;
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: .85rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1.4rem;
+      font-family: serif;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--accent); }
+    .theme-toggle {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 999px;
+      width: 2.4rem;
+      height: 2.4rem;
+      cursor: pointer;
+      font-size: 1.05rem;
+    }
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-block: clamp(4rem, 10vw, 7.5rem) clamp(3rem, 7vw, 5rem);
+    }
+    .hero::before {
+      content: "ⵣ";
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: serif;
+      font-size: clamp(16rem, 40vw, 30rem);
+      line-height: 1;
+      color: var(--accent);
+      opacity: .07;
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .35rem .85rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 6vw + 1rem, 5rem);
+      max-width: 14ch;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero .lead {
+      font-size: clamp(1.1rem, 1vw + .9rem, 1.3rem);
+      color: var(--muted);
+      max-width: 60ch;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .8rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-ghost { border: 1px solid var(--line); background: var(--surface); }
+
+    /* ---------- Sections ---------- */
+    section { padding-block: clamp(3.5rem, 8vw, 6rem); }
+    .section-alt { background: var(--surface-2); }
+    .section-head { max-width: 62ch; margin-bottom: 2.5rem; }
+    .section-head p { color: var(--muted); }
+    .kicker {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .6rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .card .icon {
+      display: grid;
+      place-items: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+    .card p { color: var(--muted); margin: 0; }
+
+    /* Intro split */
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+    @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+    .quote-card {
+      position: relative;
+      background: var(--accent-2);
+      color: #fff;
+      border-radius: calc(var(--radius) + 6px);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    :root[data-theme="dark"] .quote-card { color: #10131f; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .quote-card { color: #10131f; }
+    }
+    .quote-card .tifinagh {
+      font-family: serif;
+      font-size: 2.5rem;
+      line-height: 1;
+      opacity: .85;
+      margin-bottom: 1rem;
+    }
+    .quote-card p {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* Principles strip */
+    .principles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .7rem 1.1rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      font-weight: 500;
+    }
+    .pill strong { color: var(--accent); }
+
+    /* Values */
+    .values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      counter-reset: value;
+    }
+    .value {
+      position: relative;
+      padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent-3);
+    }
+    .value::before {
+      counter-increment: value;
+      content: "0" counter(value);
+      display: block;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--accent-3);
+      margin-bottom: .4rem;
+    }
+    .value p { color: var(--muted); margin: 0; font-size: .97rem; }
+
+    /* Comparison */
+    .compare {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+    .compare-row:first-child { border-top: 0; }
+    .compare-head {
+      background: var(--surface-2);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.15rem;
+    }
+    .compare-head .left { color: var(--accent); }
+    .compare-head .right { color: var(--accent-2); }
+    .compare-row .right { text-align: right; }
+    .compare-row .arrow {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+    @media (max-width: 560px) {
+      .compare-row { grid-template-columns: 1fr; gap: .25rem; text-align: left; }
+      .compare-row .right { text-align: left; color: var(--muted); }
+      .compare-row .arrow { display: none; }
+      .compare-row:not(.compare-head) .right::before { content: "↳ "; }
+    }
+
+    /* Timeline */
+    .evolution {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .step {
+      padding: 1.4rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .step .emoji { font-size: 1.6rem; }
+    .step span { font-weight: 600; }
+
+    /* Closing */
+    .closing {
+      text-align: center;
+      background:
+        radial-gradient(60rem 30rem at 50% 0%, var(--accent-soft), transparent 70%),
+        var(--bg);
+    }
+    .closing .big {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.6rem, 3vw + 1rem, 2.6rem);
+      line-height: 1.25;
+      max-width: 26ch;
+      margin: 0 auto 2rem;
+    }
+    .closing .big mark {
+      background: none;
+      color: var(--accent);
+    }
+    .closing .actions { justify-content: center; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding-block: 2rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="motif" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a href="#top" class="brand">
+        <span class="brand-mark" aria-hidden="true">ⵣ</span>
+        Tiwizi Tech Community
+      </a>
+      <ul class="nav-links">
+        <li><a href="#what">What is Tiwizi</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#values">Values</a></li>
+        <li><a href="#open-source">Open Source</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" id="themeToggle">◐</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">ⵜⵉⵡⵉⵣⵉ · An Amazigh principle</span>
+        <h1>Building <em>together</em>, the Tiwizi way.</h1>
+        <p class="lead">
+          Tiwizi is the traditional Amazigh practice of collective solidarity and mutual aid.
+          Today, it inspires a technology community where people share knowledge, mentor each other,
+          and build open source, together.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#what">Discover Tiwizi →</a>
+          <a class="btn btn-ghost" href="#open-source">Tiwizi &amp; Open Source</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What is Tiwizi -->
+    <section id="what" class="section-alt">
+      <div class="container split">
+        <div>
+          <span class="kicker">What is Tiwizi?</span>
+          <h2>Strength comes from cooperation.</h2>
+          <p>
+            Tiwizi is a traditional Amazigh principle of collective solidarity and mutual aid.
+            It refers to a form of voluntary cooperation where members of a community work together
+            to help one another, without financial compensation.
+          </p>
+          <p>
+            It is based on a simple idea: a community is strong when its members support each other.
+          </p>
+        </div>
+        <figure class="quote-card" style="margin:0">
+          <div class="tifinagh" aria-hidden="true">ⵜⵉⵡⵉⵣⵉ</div>
+          <p>“Each person contributes time, effort, and skills, knowing that when their turn comes, the community will help them in return.”</p>
+        </figure>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">How Tiwizi works</span>
+          <h2>When someone needs help, the community comes together.</h2>
+          <p>In Amazigh society, Tiwizi has always mobilized everyone around the moments that matter most.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">🌾</div>
+            <h3>Harvesting crops</h3>
+            <p>Neighbours gather to bring in the harvest, field after field.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🏡</div>
+            <h3>Building a house</h3>
+            <p>Hands and skills come together to raise a home for a family.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">💧</div>
+            <h3>Farming &amp; irrigation</h3>
+            <p>Shared work on land and water that sustains the whole village.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🎉</div>
+            <h3>Weddings &amp; communal events</h3>
+            <p>Everyone helps prepare the celebrations that unite the community.</p>
+          </article>
+        </div>
+
+        <div class="principles">
+          <span class="pill"><strong>✕</strong> No money is exchanged</span>
+          <span class="pill"><strong>✦</strong> The reward is solidarity, dignity, and shared responsibility</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section id="values" class="section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Core values</span>
+          <h2>Built on strong human values.</h2>
+        </div>
+
+        <div class="values">
+          <article class="value">
+            <h3>Solidarity</h3>
+            <p>Helping without expecting an immediate return.</p>
+          </article>
+          <article class="value">
+            <h3>Equality</h3>
+            <p>Everyone contributes according to their ability.</p>
+          </article>
+          <article class="value">
+            <h3>Belonging</h3>
+            <p>No one is left behind.</p>
+          </article>
+          <article class="value">
+            <h3>Collective responsibility</h3>
+            <p>Success is shared by all.</p>
+          </article>
+          <article class="value">
+            <h3>Trust &amp; respect</h3>
+            <p>The foundation of every collaboration.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tiwizi and Open Source -->
+    <section id="open-source">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Tiwizi &amp; Open Source</span>
+          <h2>An ancient principle, a modern philosophy.</h2>
+          <p>Tiwizi aligns naturally with the Open Source philosophy, making it a perfect cultural foundation for technology communities like the Tiwizi Tech Community.</p>
+        </div>
+
+        <div class="compare" role="table" aria-label="Tiwizi compared with Open Source">
+          <div class="compare-row compare-head" role="row">
+            <span class="left" role="columnheader">Tiwizi</span>
+            <span class="arrow" aria-hidden="true"></span>
+            <span class="right" role="columnheader">Open Source</span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="cell">Community effort</span>
+            <span class="arrow" aria-hidden="true">⟷</span>
+            <span class="right" role="cell">Collaborative development</span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="cell">Knowledge sharing</span>
+            <span class="arrow" aria-hidden="true">⟷</span>
+            <span class="right" role="cell">Open code and documentation</span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="cell">No financial obligation</span>
+            <span class="arrow" aria-hidden="true">⟷</span>
+            <span class="right" role="cell">Voluntary contribution</span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="cell">Collective benefit</span>
+            <span class="arrow" aria-hidden="true">⟷</span>
+            <span class="right" role="cell">Shared innovation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modern meaning -->
+    <section class="section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">The modern meaning of Tiwizi</span>
+          <h2>From the fields to the digital world.</h2>
+          <p>Today, Tiwizi is not only about physical labour. It has evolved into new forms of collaboration, proving that ancient wisdom can guide modern technology.</p>
+        </div>
+
+        <div class="evolution">
+          <div class="step"><span class="emoji" aria-hidden="true">📚</span><span>Knowledge sharing</span></div>
+          <div class="step"><span class="emoji" aria-hidden="true">🧑‍🏫</span><span>Teaching &amp; mentoring</span></div>
+          <div class="step"><span class="emoji" aria-hidden="true">🌐</span><span>Digital collaboration</span></div>
+          <div class="step"><span class="emoji" aria-hidden="true">💻</span><span>Open-source development</span></div>
+          <div class="step"><span class="emoji" aria-hidden="true">🚀</span><span>Community-driven innovation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- In one sentence -->
+    <section class="closing">
+      <div class="container">
+        <span class="kicker">In one sentence</span>
+        <p class="big">
+          Tiwizi is the Amazigh philosophy of <mark>building together</mark> through solidarity,
+          cooperation, and shared responsibility.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#">Join the community</a>
+          <a class="btn btn-ghost" href="#">Contribute on GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>ⵣ Tiwizi Tech Community</span>
+      <span>Built together, in the spirit of Tiwizi.</span>
+    </div>
+  </footer>
+  <div class="motif" aria-hidden="true"></div>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("themeToggle");
+      try {
+        var saved = localStorage.getItem("tiwizi-theme");
+        if (saved) root.setAttribute("data-theme", saved);
+      } catch (e) {}
+      btn.addEventListener("click", function () {
+        var current = root.getAttribute("data-theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        var next = current === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("tiwizi-theme", next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -5,7 +5,7 @@ const LETTER_GROUPS = [
     [
         { upper: 'Č', lower: 'č', base: 'c', digraph: 'tc' },
         { upper: 'Ḍ', lower: 'ḍ', base: 'd' },
-        { upper: 'Ǧ', lower: 'ǧ', base: 'g' },
+        { upper: 'Ǧ', lower: 'ǧ', base: 'g', digraph: 'dj' },
         { upper: 'Ḥ', lower: 'ḥ', base: 'h' },
         { upper: 'Ɣ', lower: 'ɣ', base: 'y', digraph: 'gh' },
     ],

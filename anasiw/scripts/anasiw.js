@@ -13,7 +13,7 @@ const LETTER_GROUPS = [
         { upper: 'Ṣ', lower: 'ṣ', base: 's' },
         { upper: 'Ṭ', lower: 'ṭ', base: 't' },
         { upper: 'Ẓ', lower: 'ẓ', base: 'z' },
-        { upper: 'Γ', lower: 'ɣ', base: 'y', digraph: 'gh' },
+        { upper: 'Ɣ', lower: 'ɣ', base: 'y', digraph: 'gh' },
         { upper: 'Ɛ', lower: 'ɛ', base: 'e' },
     ],
 ];
